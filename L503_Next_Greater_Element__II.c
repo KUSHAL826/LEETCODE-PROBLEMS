@@ -15,4 +15,33 @@ Example 2:
 
 Input: nums = [1,2,3,4,3]
 Output: [2,3,4,-1,4]*/
+int* nextGreaterElements(int* nums, int numsSize, int* returnSize)
+{
+    int *ret_arr =(int *)malloc(numsSize*sizeof(int));
+    *returnSize=numsSize;
+    int i,j,great,idx;
+    for(i=0;i<numsSize;i++)
+    {
+        great=nums[i];
+        for(j=1;j<2*numsSize;j++)
+        {
+            idx=(i+j)%numsSize;
+            if(nums[idx]>great)
+            {
+                great=nums[idx];
+                break;
+            }
+        }
+        if(great==nums[i])
+        {
+            ret_arr[i]=-1;
+        }
+        else
+        {
+            ret_arr[i]=great;
+        }
+    }
+    return ret_arr;
+}
+
  
