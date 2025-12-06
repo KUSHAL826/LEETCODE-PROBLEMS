@@ -26,11 +26,13 @@ struct ListNode* deleteDuplicates(struct ListNode* head)
     {
         if(prev->val==temp->val)
         {
-            prev=temp;
             temp=temp->next;
             continue;
         }
-        prev->next=NULL;
-        return head;
+        prev->next=temp;
+        prev=temp;
+        temp=temp->next;
     }
+    prev->next=NULL;
+    return head;
 }
