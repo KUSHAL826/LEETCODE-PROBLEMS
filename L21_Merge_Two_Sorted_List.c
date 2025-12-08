@@ -54,7 +54,7 @@ struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2)
             t->val=t2->val;
             t2=t2->next;
         }
-        if(head=NULL)
+        if(head==NULL)
         {
             head=t;
         }

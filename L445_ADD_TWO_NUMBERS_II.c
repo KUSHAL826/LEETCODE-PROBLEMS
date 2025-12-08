@@ -22,7 +22,7 @@ Output: [0]
  */
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
 {
-    int stack1[50],stack[50],top1=-1,top2=-1;
+    int stack1[50],stack2[50],top1=-1,top2=-1;
     struct ListNode *head=NULL,*p;
     int s=0;
     while(l1!=NULL)
@@ -32,8 +32,8 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
     }
     while(l2!=NULL)
     {
-        stack[++top2]=l2->val;
-        l2=l2->val;
+        stack2[++top2]=l2->val;
+        l2=l2->next;
     }
     while(top1>=0 || top2>=0 || s!=0)
     {
@@ -43,7 +43,7 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
         }
         if(top2>=0)
         {
-            s+=stack2[top--];
+            s+=stack2[top2--];
         }
         p=(struct ListNode*)malloc(sizeof(struct ListNode));
         p->val=s%10;
