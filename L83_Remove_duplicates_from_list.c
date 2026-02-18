@@ -15,24 +15,34 @@ Output: [1,2,3]*/
  *     struct ListNode *next;
  * };
  */
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
 struct ListNode* deleteDuplicates(struct ListNode* head) 
 {
     if(head==NULL)
     {
         return NULL;
     }
-    struct ListNode*prev=head,*temp=head->next;
+    struct ListNode* temp=head->next,*prev=head;
     while(temp!=NULL)
     {
-        if(prev->val==temp->val)
+        if(temp->val==prev->val)
         {
-            temp=temp->next;
-            continue;
+            prev->next=temp->next;
+            free(temp);
+            temp=prev->next;
         }
-        prev->next=temp;
-        prev=temp;
-        temp=temp->next;
+        else
+        {
+            prev=temp;
+            temp=temp->next;
+        }
+        
     }
-    prev->next=NULL;
     return head;
 }
