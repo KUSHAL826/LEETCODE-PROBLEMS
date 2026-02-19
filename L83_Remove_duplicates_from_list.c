@@ -28,21 +28,21 @@ struct ListNode* deleteDuplicates(struct ListNode* head)
     {
         return NULL;
     }
-    struct ListNode* temp=head->next,*prev=head;
-    while(temp!=NULL)
+    struct ListNode* cur=head->next,*prev=head;
+    while(cur!=NULL)
     {
-        if(temp->val==prev->val)
+        if(cur->val==prev->val)
         {
-            prev->next=temp->next;
-            free(temp);
-            temp=prev->next;
+            cur=cur->next;
         }
         else
         {
-            prev=temp;
-            temp=temp->next;
+            prev->next=cur;
+            prev=cur;
+            cur=cur->next;
         }
         
     }
+    prev->next=NULL;
     return head;
 }
