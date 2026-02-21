@@ -18,10 +18,7 @@ Explanation: Your function should return k = 5, with the first five elements of 
 Note that the five elements can be returned in any order.
 It does not matter what you leave beyond the returned k (hence they are underscores).
  
-Constraints:
-0 <= nums.length <= 100
-0 <= nums[i] <= 50
-0 <= val <= 100
+
 */
 int removeElement(int* nums, int n, int val) 
 {
