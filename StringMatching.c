@@ -19,7 +19,7 @@ int main()
 			{
 				break;
 			}
-		}
+		}0
 		if(j==m)
 		{
 			flag=1;
